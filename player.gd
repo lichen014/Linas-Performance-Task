@@ -3,6 +3,10 @@ signal hit
 
 @export var speed = 400
 
+@onready var bgmusic = $"../bgmusic"
+@onready var enemy_hit = $"../enemy hit"
+
+
 func _process(delta):
 	var velocity = Vector2.ZERO
 	
@@ -23,3 +27,5 @@ func _process(delta):
 func _on_body_entered(body):
 	hide()
 	hit.emit()
+	bgmusic.stop()
+	enemy_hit.play()
